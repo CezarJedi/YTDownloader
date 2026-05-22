@@ -1,4 +1,4 @@
-import yt_dlp
+import yt_dlp # pip install yt-dlp
 
 url = input("Enter YouTube URL: ")
 
