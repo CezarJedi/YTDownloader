@@ -12,6 +12,7 @@ ydl_opts = {
     'format': 'bestvideo[fps=60]+bestaudio/bestvideo+bestaudio/best',
     'format_sort': ['fps', 'res'],
     'merge_output_format': 'mp4',
+    'outtmpl': '~/Videos/%(title)s.%(ext)s',
 }
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
