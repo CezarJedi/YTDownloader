@@ -1,15 +1,18 @@
-import yt_dlp # pip install yt-dlp
+import sys
+import yt_dlp
 
-url = input("Enter YouTube URL: ")
+if len(sys.argv) < 2:
+    print("Error: Please provide a YouTube URL.")
+    print("Usage: ytd <URL>")
+    sys.exit(1)
+
+url = sys.argv[1]
 
 ydl_opts = {
-    # 'format': 'best[ext=mp4]/best', # lower quality
     'format': 'bestvideo[fps=60]+bestaudio/bestvideo+bestaudio/best',
-    'format_sort': ['fps', 'res'], # prioritizes fps over resolution
+    'format_sort': ['fps', 'res'],
     'merge_output_format': 'mp4',
 }
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
-
-# python main.py
